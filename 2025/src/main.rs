@@ -3,6 +3,7 @@ use std::process;
 use crate::utils::{advent_of_code_solution::AdventOfCodeSolution, get_solution};
 
 mod day_1;
+mod day_2;
 mod utils;
 
 fn main() -> Result<(), String> {
