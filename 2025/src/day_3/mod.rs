@@ -20,7 +20,6 @@ impl AdventOfCodeSolution for Solution {
     }
 
     fn part2(&self, input: &str) -> Result<String, String> {
-        todo!()
-        // part2::process(input)
+        part2::process(input)
     }
 }
