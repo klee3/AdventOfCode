@@ -22,8 +22,7 @@ impl AdventOfCodeSolution for Solution {
     }
 
     fn part2(&self, input: &str) -> Result<String, String> {
-        // part2::process(input)
-        todo!()
+        part2::process(input)
     }
 }
 
@@ -155,5 +154,15 @@ impl Grid {
             let idx = y * self.width + x;
             self.slots.get(idx).copied()
         }
+    }
+
+    fn set_slot(&mut self, x: usize, y: usize, slot: SlotState) -> Option<()> {
+        if x >= self.width || y >= self.height {
+            return None;
+        }
+
+        let idx = y * self.width + x;
+        self.slots[idx] = slot;
+        Some(())
     }
 }
