@@ -1,5 +1,3 @@
-use core::fmt;
-
 use crate::utils::advent_of_code_solution::AdventOfCodeSolution;
 
 pub mod part1;
@@ -22,7 +20,24 @@ impl AdventOfCodeSolution for Solution {
     }
 
     fn part2(&self, input: &str) -> Result<String, String> {
-        todo!()
-        // part2::process(input)
+        part2::process(input)
+    }
+}
+
+// ingredient Range
+#[derive(Debug)]
+struct IngRange {
+    start: u64,
+    end: u64,
+}
+
+impl IngRange {
+    fn from_str(range: &str) -> Option<Self> {
+        let mut parts = range.split('-');
+
+        let start = parts.next()?.parse().ok()?;
+        let end = parts.next()?.parse().ok()?;
+
+        Some(Self { start, end })
     }
 }

@@ -1,6 +1,8 @@
+use crate::day_5::IngRange;
+
 pub fn process(input: &str) -> Result<String, String> {
     let mut lines = input.lines();
-    let mut ranges: Vec<Range> = Vec::new();
+    let mut ranges: Vec<IngRange> = Vec::new();
     let mut ids: Vec<u64> = Vec::new();
 
     // Process ranges
@@ -8,7 +10,7 @@ pub fn process(input: &str) -> Result<String, String> {
         if line.is_empty() {
             break;
         }
-        let range = Range::from_str(line).ok_or_else(|| format!("invalid range: {}", line))?;
+        let range = IngRange::from_str(line).ok_or_else(|| format!("invalid range: {}", line))?;
         ranges.push(range);
     }
 
@@ -39,23 +41,6 @@ pub fn process(input: &str) -> Result<String, String> {
     }
 
     Ok(count.to_string())
-}
-
-#[derive(Debug)]
-struct Range {
-    start: u64,
-    end: u64,
-}
-
-impl Range {
-    fn from_str(range: &str) -> Option<Self> {
-        let mut parts = range.split('-');
-
-        let start = parts.next()?.parse().ok()?;
-        let end = parts.next()?.parse().ok()?;
-
-        Some(Range { start, end })
-    }
 }
 
 #[cfg(test)]
