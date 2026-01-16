@@ -1,5 +1,7 @@
 use std::collections::VecDeque;
 
+use crate::day_7::{TachyonGrid, TachyonState};
+
 pub fn process(input: &str) -> Result<String, String> {
     let width = input.lines().next().ok_or("Input line is empty")?.len();
     let mut grid = TachyonGrid::new(width);
@@ -13,7 +15,7 @@ pub fn process(input: &str) -> Result<String, String> {
     let mut queue = VecDeque::new();
     for y in 0..grid.height {
         for x in 0..grid.width {
-            if grid.get_slot(x, y) == Some(TachyonState::Beam) {
+            if grid.get_slot(x, y) == Some(TachyonState::Start) {
                 queue.push_back((x, y));
             }
         }
@@ -50,77 +52,6 @@ pub fn process(input: &str) -> Result<String, String> {
     }
 
     Ok(beam_splitted.to_string())
-}
-
-#[derive(Debug, Clone, Copy, PartialEq, Eq)]
-enum TachyonState {
-    Empty,
-    Beam,
-    Splitter,
-}
-
-#[derive(Debug, Clone)]
-struct TachyonGrid {
-    width: usize,
-    height: usize,
-    slots: Vec<TachyonState>,
-}
-
-#[allow(unused)]
-impl TachyonGrid {
-    fn new(width: usize) -> Self {
-        Self {
-            width,
-            height: 0,
-            slots: Vec::new(),
-        }
-    }
-
-    fn display(&self) {
-        for line in self.slots.chunks(self.width) {
-            let mut s: String = String::new();
-            for state in line.iter() {
-                match state {
-                    TachyonState::Beam => s.push('|'),
-
-                    TachyonState::Splitter => s.push('^'),
-                    TachyonState::Empty => s.push('.'),
-                }
-            }
-            println!("{}", s);
-        }
-    }
-
-    fn add_row(&mut self, row: &str) {
-        for ch in row.chars() {
-            let sl = match ch {
-                'S' | '|' => TachyonState::Beam,
-                '^' => TachyonState::Splitter,
-                _ => TachyonState::Empty,
-            };
-            self.slots.push(sl);
-        }
-        self.height += 1;
-    }
-
-    fn get_slot(&self, x: usize, y: usize) -> Option<TachyonState> {
-        if x >= self.width || y >= self.height {
-            None
-        } else {
-            let idx = y * self.width + x;
-            self.slots.get(idx).copied()
-        }
-    }
-
-    fn set_slot(&mut self, x: usize, y: usize, tachyon: TachyonState) -> Option<()> {
-        if x >= self.width || y >= self.height {
-            return None;
-        }
-
-        let idx = y * self.width + x;
-        self.slots[idx] = tachyon;
-        Some(())
-    }
 }
 
 #[cfg(test)]
