@@ -1,5 +1,5 @@
 use crate::{
-    day_1, day_2, day_3, day_4, day_5, day_6, day_7,
+    day_1, day_2, day_3, day_4, day_5, day_6, day_7, day_8,
     utils::advent_of_code_solution::AdventOfCodeSolution,
 };
 
@@ -14,6 +14,7 @@ pub fn get_solution(day: u8) -> Option<Box<dyn AdventOfCodeSolution>> {
         5 => Some(Box::new(day_5::Solution)),
         6 => Some(Box::new(day_6::Solution)),
         7 => Some(Box::new(day_7::Solution)),
+        8 => Some(Box::new(day_8::Solution)),
         _ => None,
     }
 }
