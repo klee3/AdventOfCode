@@ -45,7 +45,7 @@ mod tests {
     use crate::{AdventOfCodeSolution, day_3::Solution};
 
     #[test]
-    fn part1_example() {
+    fn example() {
         let input = "987654321111111
 811111111111119
 234234234234278

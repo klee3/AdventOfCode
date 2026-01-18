@@ -53,7 +53,7 @@ mod tests {
     use crate::{AdventOfCodeSolution, day_8::Solution};
 
     #[test]
-    fn part2_example() {
+    fn example() {
         let input = "162,817,812
 57,618,57
 906,360,560

@@ -50,7 +50,7 @@ mod tests {
     use super::part1_testable;
 
     #[test]
-    fn part1_example() {
+    fn example() {
         let input = "162,817,812
 57,618,57
 906,360,560

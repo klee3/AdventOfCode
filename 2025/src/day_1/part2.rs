@@ -37,7 +37,7 @@ mod tests {
     use crate::{AdventOfCodeSolution, day_1::Solution};
 
     #[test]
-    fn part2_example() {
+    fn example() {
         let input = "L68
 L30
 R48

@@ -79,7 +79,7 @@ mod tests {
     use crate::{AdventOfCodeSolution, day_4::Solution};
 
     #[test]
-    fn part1_example() {
+    fn example() {
         let input = "..@@.@@@@.
 @@@.@.@.@@
 @@@@@.@.@@

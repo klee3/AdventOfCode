@@ -48,7 +48,7 @@ mod tests {
     use crate::{AdventOfCodeSolution, day_5::Solution};
 
     #[test]
-    fn part1_example() {
+    fn example() {
         let input = "3-5
 10-14
 16-20

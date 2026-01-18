@@ -107,7 +107,7 @@ mod tests {
     use crate::{AdventOfCodeSolution, day_6::Solution};
 
     #[test]
-    fn part1_example() {
+    fn example() {
         let input = "123 328  51 64 
  45 64  387 23 
   6 98  215 314
